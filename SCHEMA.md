@@ -3,6 +3,8 @@ user:
 	id: int
 	email: string
 	password: string
+	first_name: string
+	last_name: string
 
 product:
 	id: int
