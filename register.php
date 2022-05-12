@@ -1,21 +1,35 @@
 <?php
 
+// import $db variable
+require('db.php');
+
 $errors = [];
+$values = [];
 
 if (!empty($_POST)) {
     // iterate over required fields and check if are not empty
-    $fields = ["email", "first_name", "last_name"];
+    $fields = ["email", "first_name", "last_name", "password"];
     foreach ($fields as $field) {
         if (!isset($_POST[$field]) || empty($_POST[$field])) {
             $errors[$field] = "The {$field} field is required.";
+            continue;
         }
+        
+        // save the value to the $values array
+        $values[$field] = $_POST[$field];
     }
 
     // if there are no errors we are good to go
-    if (empty ($errors)) {
-        $email = $_POST["email"];
-        $first_name = $_POST["first_name"];
-        $last_name = $_POST["last_name"];
+    if (empty($errors)) {
+        $sth = $db->prepare(
+            'INSERT INTO users (email, first_name, last_name, password) VALUES (:email, :first_name, :last_name, :password)'
+        );
+
+        try {
+            $sth->execute($values);
+        } catch (PDOException $e) {
+            $errors['email'] = "Email is already taken.";
+        }
     }
 }
 
@@ -40,6 +54,12 @@ if (!empty($_POST)) {
         <label for="last_name">Last name</label>
         <input type="text" name="last_name" id="last_name" required>
         <?= isset($errors["last_name"]) ? "<span class=error>" . $errors['last_name'] . "</span" : "" ?>
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+        <?= isset($errors["password"]) ? "<span class=error>" . $errors['password'] . "</span" : "" ?>
     </div>
     
     <button type="submit">Register</button>
