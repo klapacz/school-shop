@@ -1,8 +1,7 @@
 <?php
 
 $host = 'localhost';
-// TODO: change this name XD
-$dbname = 'klefshop';
+$dbname = 'shop';
 $user = 'root';
 $password = '';
 
