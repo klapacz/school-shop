@@ -2,25 +2,22 @@
 
 // import $db variable
 require('db.php');
+// import helpers
+require('helpers.php');
 
 $errors = [];
 $values = [];
 
-if (!empty($_POST)) {
+if ($method == 'POST') {
     // iterate over required fields and check if are not empty
-    $fields = ["email", "first_name", "last_name", "password"];
-    foreach ($fields as $field) {
-        if (!isset($_POST[$field]) || empty($_POST[$field])) {
-            $errors[$field] = "The {$field} field is required.";
-            continue;
-        }
-        
-        // save the value to the $values array
-        $values[$field] = $_POST[$field];
-    }
+    $required_fields = ["email", "first_name", "last_name", "password"];
+    validate($errors, $values, $required_fields);
 
     // if there are no errors we are good to go
     if (empty($errors)) {
+        // hash password
+        $values['password'] = password_hash($values['password'], PASSWORD_DEFAULT);
+
         $sth = $db->prepare(
             'INSERT INTO users (email, first_name, last_name, password) VALUES (:email, :first_name, :last_name, :password)'
         );
