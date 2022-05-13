@@ -16,8 +16,7 @@ if ($method == 'POST') {
         $user = $sth->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($values['password'], $user['password'])) {
-            $_SESSION['user'] = $user;
-            header('Location: index.php');
+            login($user);
         } else {
             $errors['email'] = "Invalid email or password.";
         }

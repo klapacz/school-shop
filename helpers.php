@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $method = $_SERVER['REQUEST_METHOD'];
 
 $errors = [];
@@ -17,3 +19,16 @@ function validate(&$errors, &$values, $required_fields) {
         $values[$field] = $_POST[$field];
     }
 }
+
+function login($user) {
+    $_SESSION['user'] = $user;
+    header('Location: /index.php');
+}
+
+function logout() {
+    unset($_SESSION['user']);
+    header('Location: /login.php');
+}
+
+// fallback user to null
+$user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
