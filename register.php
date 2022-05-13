@@ -5,11 +5,7 @@ require('db.php');
 // import helpers
 require('helpers.php');
 
-$errors = [];
-$values = [];
-
 if ($method == 'POST') {
-    // iterate over required fields and check if are not empty
     $required_fields = ["email", "first_name", "last_name", "password"];
     validate($errors, $values, $required_fields);
 
