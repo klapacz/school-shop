@@ -22,7 +22,7 @@ function validate(&$errors, &$values, $required_fields) {
 
 function login($user) {
     $_SESSION['user'] = $user;
-    header('Location: /index.php');
+    header('Location: /');
 }
 
 function logout() {

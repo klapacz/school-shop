@@ -1,16 +1,1 @@
-<?php
-// import helpers
-require('helpers.php')
-
-?>
-
-<nav>
-    <a href="/shop/product/">Products</a>
-    <?php if ($user) : ?>
-        <?= $user["email"] ?>
-        <a href="logout.php">Logout</a>
-    <?php else : ?>
-        <a href="register.php">Register</a>
-        <a href="login.php">Login</a>
-    <?php endif ?>
-</nav>
+<?php require('layout/nav.php'); ?>
