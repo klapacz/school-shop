@@ -18,15 +18,21 @@ $products = $sth->fetchAll(PDO::FETCH_ASSOC);
     }
 </style>
 
+<h1>Products</h1>
+
 <table>
     <thead>
-        <th>name</th>
-        <th>price</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Actions</th>
     </thead>
     <tbody>
         <?php foreach ($products as $product) : ?>
             <td><?= $product["name"] ?></td>
             <td><?= $product["price"] / 100 ?>zł</td>
+            <td>
+                <a href="/shop/product/view.php?id=<?= $product["id"] ?>">View</a>
+            </td>
         <?php endforeach ?>
     </tbody>
 </table>
