@@ -18,6 +18,6 @@ $product = $sth->fetch(PDO::FETCH_ASSOC);
     <h1> Product <?= $product["name"] ?></h1>
 
     <p>Price: <?= $product["price"] / 100 ?>zł</p>
-    <p>Availability: <?= $product["availability"] / 100 ?>zł</p>
+    <p>Availability: <?= $product["availability"] ?></p>
 <?php endif ?>
 
