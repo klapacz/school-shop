@@ -30,5 +30,5 @@ function logout() {
     header('Location: /login.php');
 }
 
-// fallback user to null
+// fallback user to false
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
