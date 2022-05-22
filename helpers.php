@@ -27,7 +27,7 @@ function login($user) {
 
 function logout() {
     unset($_SESSION['user']);
-    header('Location: /login.php');
+    header('Location: /auth/login.php');
 }
 
 // fallback user to false

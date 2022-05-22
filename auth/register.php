@@ -1,9 +1,7 @@
 <?php
 
-// import $db variable
-require('db.php');
-// import helpers
-require('helpers.php');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/helpers.php';
 
 if ($method == 'POST') {
     $required_fields = ["email", "first_name", "last_name", "password"];
@@ -27,6 +25,8 @@ if ($method == 'POST') {
 }
 
 ?>
+
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/layout/nav.php'; ?>
 
 <form method="POST">
     <h1>Register</h1>

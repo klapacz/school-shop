@@ -25,10 +25,10 @@
     <div class="auth">
         <?php if ($user) : ?>
             <?= $user["email"] ?>
-            <a href="logout.php">Logout</a>
+            <a href="/auth/logout.php">Logout</a>
         <?php else : ?>
-            <a href="register.php">Register</a>
-            <a href="login.php">Login</a>
+            <a href="/auth/register.php">Register</a>
+            <a href="/auth/login.php">Login</a>
         <?php endif ?>
     </div>
 </nav>
