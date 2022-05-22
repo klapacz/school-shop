@@ -11,7 +11,7 @@ if ($method == 'POST') {
 
     // if there are no errors we are good to go
     if (empty($errors)) {
-        $sth = $db->prepare('SELECT first_name, last_name, password FROM users WHERE email = ?');
+        $sth = $db->prepare('SELECT first_name, last_name, password, email FROM users WHERE email = ?');
         $sth->execute([$values['email']]);
         $user = $sth->fetch(PDO::FETCH_ASSOC);
 
