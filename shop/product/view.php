@@ -1,6 +1,6 @@
 <?php
-require('../../helpers.php');
-require('../../db.php');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/helpers.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/db.php';
 
 if (empty($_GET['id'])) {
     header('Location: /shop/product/');

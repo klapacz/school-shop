@@ -1,5 +1,6 @@
 <?php
 
+// TODO: use more unique variable names
 $host = 'localhost';
 $dbname = 'shop';
 $user = 'root';

@@ -1,6 +1,7 @@
 <?php
-require('../../helpers.php');
-require('../../db.php');
+ 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/helpers.php';
 
 $sth = $db->prepare('SELECT id, name, price FROM products');
 $sth->execute();
@@ -17,6 +18,8 @@ $products = $sth->fetchAll(PDO::FETCH_ASSOC);
         padding: .5rem;
     }
 </style>
+
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/layout/nav.php'; ?>
 
 <h1>Products</h1>
 
