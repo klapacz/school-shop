@@ -5,6 +5,7 @@ require('helpers.php')
 ?>
 
 <nav>
+    <a href="/shop/product/">Products</a>
     <?php if ($user) : ?>
         <?= $user["email"] ?>
         <a href="logout.php">Logout</a>
