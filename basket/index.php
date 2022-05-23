@@ -1,9 +1,11 @@
 <?php
  
 require_once $_SERVER['DOCUMENT_ROOT'] . '/db.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/helpers.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/helpers/basket.php';
 
-$sth = $db->prepare('SELECT id, name, price FROM products');
+$basket_id = get_or_create_basket();
+
+$sth = $db->prepare('SELECT orders_products.count, orders_products.id, products.name, products.price FROM orders_products JOIN products ON products.id = orders_products.product_id WHERE orders_products.order_id = 1');
 $sth->execute();
 $products = $sth->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -21,22 +23,25 @@ $products = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/layout/nav.php'; ?>
 
-<h1>Products</h1>
+<h1>Basket</h1>
 
 <table>
     <thead>
+        <th>Count</th>
         <th>Name</th>
         <th>Price</th>
         <th>Actions</th>
     </thead>
     <tbody>
         <?php foreach ($products as $product) : ?>
-            <td><?= $product["name"] ?></td>
-            <td><?= $product["price"] / 100 ?>zł</td>
-            <td>
-                <a href="/shop/product/view.php?id=<?= $product["id"] ?>">View</a>
-                <a href="/basket/add.php?product_id=<?= $product["id"] ?>">Add to basket</a>
-            </td>
+            <tr>
+                <td><?= $product["count"] ?></td>
+                <td><?= $product["name"] ?></td>
+                <td><?= $product["price"] / 100 ?>zł</td>
+                <td>
+                    TODO: remove from basket
+                </td>
+            </tr>
         <?php endforeach ?>
     </tbody>
 </table>
