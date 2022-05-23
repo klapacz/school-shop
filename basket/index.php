@@ -3,10 +3,12 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/db.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/helpers/basket.php';
 
-$basket_id = get_or_create_basket();
+$order_id = get_or_create_basket();
 
-$sth = $db->prepare('SELECT orders_products.count, orders_products.id, products.name, products.price FROM orders_products JOIN products ON products.id = orders_products.product_id WHERE orders_products.order_id = 1');
-$sth->execute();
+$sth = $db->prepare('SELECT orders_products.count, orders_products.id, products.name, products.price FROM orders_products JOIN products ON products.id = orders_products.product_id WHERE orders_products.order_id = :order_id');
+$sth->execute([
+    "order_id" => $order_id,
+]);
 $products = $sth->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
