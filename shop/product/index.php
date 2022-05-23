@@ -31,12 +31,14 @@ $products = $sth->fetchAll(PDO::FETCH_ASSOC);
     </thead>
     <tbody>
         <?php foreach ($products as $product) : ?>
-            <td><?= $product["name"] ?></td>
-            <td><?= $product["price"] / 100 ?>zł</td>
-            <td>
-                <a href="/shop/product/view.php?id=<?= $product["id"] ?>">View</a>
-                <a href="/basket/add.php?product_id=<?= $product["id"] ?>">Add to basket</a>
-            </td>
+            <tr>
+                <td><?= $product["name"] ?></td>
+                <td><?= $product["price"] / 100 ?>zł</td>
+                <td>
+                    <a href="/shop/product/view.php?id=<?= $product["id"] ?>">View</a>
+                    <a href="/basket/add.php?product_id=<?= $product["id"] ?>">Add to basket</a>
+                </td>
+            </tr>
         <?php endforeach ?>
     </tbody>
 </table>
