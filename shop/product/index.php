@@ -35,6 +35,7 @@ $products = $sth->fetchAll(PDO::FETCH_ASSOC);
             <td><?= $product["price"] / 100 ?>zł</td>
             <td>
                 <a href="/shop/product/view.php?id=<?= $product["id"] ?>">View</a>
+                <a href="/basket/add.php?product_id=<?= $product["id"] ?>">Add to basket</a>
             </td>
         <?php endforeach ?>
     </tbody>
