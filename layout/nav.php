@@ -24,6 +24,7 @@
     <a href="/shop/product/">Products</a>
     <div class="auth">
         <?php if ($user) : ?>
+            <a href="/basket">Basket</a>
             <?= $user["email"] ?>
             <a href="/auth/logout.php">Logout</a>
         <?php else : ?>
