@@ -9,12 +9,12 @@ if ($method == 'POST') {
 
     // if there are no errors we are good to go
     if (empty($errors)) {
-        $sth = $db->prepare('SELECT first_name, last_name, password, email FROM users WHERE email = ?');
+        $sth = $db->prepare('SELECT first_name, last_name, password, email, id FROM users WHERE email = ?');
         $sth->execute([$values['email']]);
-        $user = $sth->fetch(PDO::FETCH_ASSOC);
+        $user_in_db = $sth->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && password_verify($values['password'], $user['password'])) {
-            login($user);
+        if ($user_in_db && password_verify($values['password'], $user_in_db['password'])) {
+            login($user_in_db);
         } else {
             $errors['email'] = "Invalid email or password.";
         }
