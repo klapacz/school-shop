@@ -6,4 +6,4 @@ INSERT INTO products (
     'Sanki',
     12345,
     10
-)
+);

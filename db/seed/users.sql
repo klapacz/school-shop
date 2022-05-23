@@ -10,4 +10,4 @@ INSERT INTO users (
     'Admin',
     'Admin',
     'ADMIN'
-)
+);
