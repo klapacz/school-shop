@@ -33,6 +33,8 @@ CREATE TABLE orders_products (
     product_id int NOT NULL,
     order_id int NOT NULL,
     
+    -- TODO: uniqe constraint on product_id and order_id
+    
     FOREIGN KEY(order_id) REFERENCES orders(id),
     FOREIGN KEY(product_id) REFERENCES products(id)
 );
