@@ -19,3 +19,5 @@ $sth->execute([
     "product_id" => $product_id,
     "order_id" => $order_id,
 ]);
+
+header('Location: /basket/');
