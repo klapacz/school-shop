@@ -41,7 +41,7 @@ $products = $sth->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= $product["name"] ?></td>
                 <td><?= $product["price"] / 100 ?>zł</td>
                 <td>
-                    TODO: remove from basket
+                    <a href="/basket/remove.php?id=<?= $product["id"] ?>">Delete</a>
                 </td>
             </tr>
         <?php endforeach ?>
