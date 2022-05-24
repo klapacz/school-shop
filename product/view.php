@@ -3,7 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/db.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/helpers.php';
 
 if (empty($_GET['id'])) {
-    header('Location: /shop/product/');
+    header('Location: /product/');
     return;
 }
 

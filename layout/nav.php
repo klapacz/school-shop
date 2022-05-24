@@ -21,7 +21,7 @@
 </style>
 
 <nav>
-    <a href="/shop/product/">Products</a>
+    <a href="/product/">Products</a>
     <div class="auth">
         <?php if ($user) : ?>
             <a href="/basket">Basket</a>
