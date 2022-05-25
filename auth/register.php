@@ -18,6 +18,8 @@ if ($method == 'POST') {
 
         try {
             $sth->execute($values);
+            flash_message("Registered successfully");
+            header('Location: /auth/login.php');
         } catch (PDOException $e) {
             $errors['email'] = "Email is already taken.";
         }

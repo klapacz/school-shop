@@ -10,3 +10,7 @@
 <body>
     
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/layout/nav.php'; ?>
+
+<?php if($message) : ?>
+    <p style="background-color: #f00; color: #fff;"><?= $message ?></p>
+<?php endif ?>
