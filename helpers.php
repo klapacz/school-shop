@@ -7,6 +7,16 @@ $method = $_SERVER['REQUEST_METHOD'];
 $errors = [];
 $values = [];
 
+$message = false;
+if(isset($_SESSION['flash_message'])) {
+    $message = $_SESSION['flash_message'];
+    unset($_SESSION['flash_message']);
+}
+
+function flash_message($message) {
+    $_SESSION['flash_message'] = $message;
+}
+
 function validate(&$errors, &$values, $required_fields) {
     // iterate over required fields and check if are not empty
     foreach ($required_fields as $field) {

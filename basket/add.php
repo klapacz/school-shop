@@ -13,11 +13,15 @@ $count = isset($_GET["count"]) ? $_GET["count"] : 1;
 
 $order_id = get_or_create_basket();
 
-$sth = $db->prepare('INSERT INTO orders_products (count, product_id, order_id) VALUES (:count, :product_id, :order_id)');
-$sth->execute([
-    "count" => $count,
-    "product_id" => $product_id,
-    "order_id" => $order_id,
-]);
+try {
+    $sth = $db->prepare('INSERT INTO orders_products (count, product_id, order_id) VALUES (:count, :product_id, :order_id)');
+    $sth->execute([
+        "count" => $count,
+        "product_id" => $product_id,
+        "order_id" => $order_id,
+    ]);
+} catch (PDOException $e) {
+    flash_message("Product already in basket");
+}
 
 header('Location: /basket/');

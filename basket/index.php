@@ -27,6 +27,12 @@ $products = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 <h1>Basket</h1>
 
+<?php if($message) : ?>
+    <p style="background-color: #f00; color: #fff;"><?= $message ?></p>
+<?php endif ?>
+
+</div>
+
 <table>
     <thead>
         <th>Count</th>
