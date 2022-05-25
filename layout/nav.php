@@ -1,25 +1,5 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/helpers.php'; ?>
 
-<style>
-    nav {
-        border-bottom: 2px solid #000;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    nav a {
-        display: block;
-        padding: 1rem;
-    }   
-
-    nav .auth {
-        display: flex;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
-
 <nav>
     <a href="/product/">Products</a>
     <div class="auth">

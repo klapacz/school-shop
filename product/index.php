@@ -8,18 +8,7 @@ $sth->execute();
 $products = $sth->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<style>
-    table, th, td {
-        border: 1px solid #000;
-        border-collapse: collapse;
-    }
-
-    td, th {
-        padding: .5rem;
-    }
-</style>
-
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/layout/nav.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/layout/header.php'; ?>
 
 <h1>Products</h1>
 
@@ -42,3 +31,5 @@ $products = $sth->fetchAll(PDO::FETCH_ASSOC);
         <?php endforeach ?>
     </tbody>
 </table>
+
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/layout/footer.php'; ?>

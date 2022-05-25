@@ -1,0 +1,29 @@
+nav {
+  border-bottom: 2px solid #000;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+}
+
+nav .auth {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table,
+th,
+td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 0.5rem;
+}

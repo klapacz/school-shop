@@ -12,7 +12,7 @@ $sth->execute([ "id" => $_GET['id'] ]);
 $product = $sth->fetch(PDO::FETCH_ASSOC);
 ?>
 
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/layout/nav.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/layout/header.php'; ?>
 
 <?php if (!$product) : ?>
     <h1>Product not found</h1>
@@ -28,3 +28,5 @@ $product = $sth->fetch(PDO::FETCH_ASSOC);
     </form>
 <?php endif ?>
 
+
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/layout/footer.php'; ?>

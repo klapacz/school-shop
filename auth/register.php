@@ -26,7 +26,7 @@ if ($method == 'POST') {
 
 ?>
 
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/layout/nav.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/layout/header.php'; ?>
 
 <form method="POST">
     <h1>Register</h1>
@@ -57,3 +57,5 @@ if ($method == 'POST') {
     
     <button type="submit">Register</button>
 </form>
+
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/layout/footer.php'; ?>
