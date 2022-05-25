@@ -21,5 +21,10 @@ $product = $sth->fetch(PDO::FETCH_ASSOC);
 
     <p>Price: <?= $product["price"] / 100 ?>zł</p>
     <p>Availability: <?= $product["availability"] ?></p>
+    <form action="/basket/add.php" method="GET">
+        <input type="text" name="product_id" value="<?= $product["id"] ?>" hidden>
+        <input type="number" name="count" value="1" min=1 max=<?= $product["availability"]?>> 
+        <button>Add to basket</button>
+    </form>
 <?php endif ?>
 
